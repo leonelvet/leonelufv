@@ -1,0 +1,1033 @@
+<iframe id="interactive-151197" srcdoc="<html><head><script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;></script><script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js&quot;></script><script src=&quot;https://www.aaha.org/Static/js/bootstrap-vue.min.js&quot;></script><script src=&quot;https://www.aaha.org/wp-content/uploads/2024/04/anesthesia-discharge.js&quot;></script><link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot;><script src=&quot;https://www.aaha.org/wp-content/themes/fritz/assets/scripts/iframeResizerContentWindow.js&quot;></script></head><body><script>
+	(function () {
+	  function initThisComponent() {
+		new Vue({
+		  el: &quot;#richText&quot;
+		});
+	  }
+	  document.addEventListener(&quot;DOMContentLoaded&quot;, initThisComponent, false);
+	})();
+  </script>
+<script type=&quot;text/javascript&quot;>
+        var oldPrintWindow;
+        function GetPrintableForm() {
+            try {
+                oldPrintWindow.close();
+            } catch (e) {
+
+            }
+
+            var printWindow = window.open('', 'Discharge Instructions', 'menubar=no', true);
+            printWindow.document.body.innerHTML = '';
+            printWindow.document.head.innerHTML = '';
+            printWindow.document.write('<!DOCTYPE html> <html> <head> <meta charset=&quot;utf-8&quot;> <title>Anesthesia Discharge Instructions</title> <style type=&quot;text/css&quot;> ' + $('#ddi_styles').html() + ' </style>  </head> <body> <div class=&quot;ddi_printable&quot;> ' + $('#divToPrint').html() + ' </div> <script type=&quot;text/javascript&quot;> window.setTimeout(function(){  window.print(); }, 1000); <' + '/script> </body> </html>');
+            printWindow.focus();
+
+            oldPrintWindow = printWindow;
+
+            return;
+        }
+</script>
+<div id=&quot;richText&quot;>
+<div>
+        <b-tabs content-class=&quot;mt-3&quot; fill>
+            <b-tab title=&quot;Enter Your Information&quot; active>
+                <div id=&quot;divEntryForm&quot; class=&quot;marg10&quot;>
+                    <br />
+                    <div class=&quot;row&quot;>
+                        <div class=&quot;col-sm-6&quot;>
+                            <div class=&quot;form-group&quot;>
+                                <label for=&quot;today&quot;>Today's Date:</label>
+                                <input type=&quot;date&quot; class=&quot;form-control&quot; id=&quot;today&quot;>
+                            </div>
+                        </div>
+                        <div class=&quot;col-sm-6&quot;>
+                            <div class=&quot;form-group&quot;>
+                                <label for=&quot;tbVetName&quot;>Veterinarian's Name:</label>
+                                <div class=&quot;input-group mb-3&quot;>
+                                    <div class=&quot;input-group-prepend&quot;><span class=&quot;input-group-text&quot;>Dr.</span></div>
+                                    <input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;tbVetName&quot; />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <template>
+                        <div role=&quot;tablist&quot;>
+                            <b-card no-body class=&quot;mb-1&quot;>
+                                <b-card-header header-tag=&quot;header&quot; class=&quot;p-1&quot; role=&quot;tab&quot;>
+                                    <b-button block href=&quot;#&quot; v-b-toggle.accordion-1 variant=&quot;info&quot; class=&quot;text-left&quot;><h4 class=&quot;acc_head&quot;>Hospital</h4></b-button>
+                                </b-card-header>
+                                <b-collapse id=&quot;accordion-1&quot; visible accordion=&quot;my-accordion&quot; role=&quot;tabpanel&quot;>
+                                    <b-card-body>
+                                        <b-card-text>
+                                            <div class=&quot;row&quot;>
+                                                <div class=&quot;col-sm-6&quot;>
+                                                    <div class=&quot;form-group&quot;>
+                                                        <label for=&quot;tbHospitalName&quot;>Hospital Name:</label>
+                                                        <input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;tbHospitalName&quot; />
+                                                    </div>
+                                                    <div class=&quot;form-group&quot;>
+                                                        <label for=&quot;tbHospitalAddress&quot; style=&quot;vertical-align: top;&quot;>Hospital Address:</label>
+                                                        <textarea class=&quot;form-control&quot; id=&quot;tbHospitalAddress&quot; rows=&quot;3&quot;></textarea>
+                                                    </div>
+                                                    <div class=&quot;form-group&quot;>
+                                                        <label for=&quot;tbPhone&quot;>Hospital Phone Number:</label>
+                                                        <input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;tbPhone&quot; placeholder=&quot;000-000-0000&quot; maxlength=&quot;12&quot; />
+                                                    </div>
+                                                </div>
+                                                <div class=&quot;col-sm-6&quot;>
+                                                    <div class=&quot;form-group&quot;>
+                                                        <label for=&quot;tbERHospitalName&quot;>ER Hospital Name:</label>
+                                                        <input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;tbERHospitalName&quot; />
+                                                    </div>
+                                                    <div class=&quot;form-group&quot;>
+                                                        <label for=&quot;tbERHospitalPhone&quot;>ER Hospital Phone Number:</label>
+                                                        <input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;tbERHospitalPhone&quot; placeholder=&quot;000-000-0000&quot; maxlength=&quot;12&quot; />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </b-card-text>
+                                    </b-card-body>
+                                </b-collapse>
+                            </b-card>
+
+                            <b-card no-body class=&quot;mb-1&quot;>
+                                <b-card-header header-tag=&quot;header&quot; class=&quot;p-1&quot; role=&quot;tab&quot;>
+                                    <b-button block href=&quot;#&quot; v-b-toggle.accordion-2 variant=&quot;info&quot; class=&quot;text-left&quot;><h4 class=&quot;acc_head&quot;>Patient</h4></b-button>
+                                </b-card-header>
+                                <b-collapse id=&quot;accordion-2&quot; accordion=&quot;my-accordion&quot; role=&quot;tabpanel&quot;>
+                                    <b-card-body>
+                                        <b-card-text>
+                                            <div class=&quot;form-horizontal&quot;>
+                                                <div class=&quot;form-group&quot;>
+                                                    <label for=&quot;tbPetName&quot; class=&quot;col-sm-2&quot;>Pet's Name:</label>
+                                                    <div class=&quot;col-sm-10&quot;>
+                                                        <input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;tbPetName&quot; />
+                                                    </div>
+                                                </div>
+                                                <div class=&quot;form-group&quot;>
+                                                    <label for=&quot;rblGender&quot; class=&quot;col-sm-2&quot;>Gender:</label>
+                                                    <div class=&quot;col-sm-10&quot;>
+                                                        <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rblGender&quot; value=&quot;his&quot;>M</label>
+                                                        <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rblGender&quot; value=&quot;his&quot;>MN</label>
+                                                        <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rblGender&quot; value=&quot;her&quot;>F</label>
+                                                        <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rblGender&quot; value=&quot;her&quot;>FS</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </b-card-text>
+                                    </b-card-body>
+                                </b-collapse>
+                            </b-card>
+
+                            <b-card no-body class=&quot;mb-1&quot;>
+                                <b-card-header header-tag=&quot;header&quot; class=&quot;p-1&quot; role=&quot;tab&quot;>
+                                    <b-button block href=&quot;#&quot; v-b-toggle.accordion-5 variant=&quot;info&quot; class=&quot;text-left&quot;><h4 class=&quot;acc_head&quot;>Anesthesia</h4></b-button>
+                                </b-card-header>
+                                <b-collapse id=&quot;accordion-5&quot; accordion=&quot;my-accordion&quot; role=&quot;tabpanel&quot;>
+                                    <b-card-body>
+                                        <b-card-text>
+                                            <div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbAnesHowDidWell&quot; checked /><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> did well under anesthesia.</label>
+                                                </div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbAnesHowWoke&quot; /><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> woke up very smoothly.</label>
+                                                </div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbAnesHowComplications&quot; /><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> had some complications under anesthesia.</label>
+                                                </div>
+
+                                                <div class=&quot;divtbAnesExp form-group&quot;>
+                                                    <label for=&quot;tbAnesExp&quot;>Explain:</label>
+                                                    <textarea class=&quot;form-control&quot; id=&quot;tbAnesExp&quot; rows=&quot;3&quot;></textarea>
+                                                </div>
+
+                                                <div class=&quot;form-group&quot;>
+                                                    <label for=&quot;rbAnesRecTime&quot;>Amount of time the pet might be dysphoric at home:</label>
+                                                    <div class=&quot;radio&quot;>
+                                                        <label><input type=&quot;radio&quot; name=&quot;rbAnesRecTime&quot; value=&quot;1-2 hours&quot; checked />1-2 hours</label>
+                                                    </div>
+                                                    <div class=&quot;radio&quot;>
+                                                        <label><input type=&quot;radio&quot; name=&quot;rbAnesRecTime&quot; value=&quot;4-6 hours&quot; />4-6 hours</label>
+                                                    </div>
+                                                    <div class=&quot;radio&quot;>
+                                                        <label><input type=&quot;radio&quot; name=&quot;rbAnesRecTime&quot; value=&quot;12-24 hours&quot; />12-24 hours</label>
+                                                    </div>
+                                                    <div class=&quot;radio&quot;>
+                                                        <label><input type=&quot;radio&quot; name=&quot;rbAnesRecTime&quot; value=&quot;24-48 hours&quot; />24-48 hours</label>
+                                                    </div>
+                                                </div>
+                                                <h4>IV Catheter</h4>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbIVWasUsed&quot; checked />An IV catheter was placed to administer IV fluids, anesthesia, and other medications.</label>
+                                                </div>
+                                                <div class=&quot;divAddlCatheter cbindent&quot;>
+                                                    <div class=&quot;checkbox&quot;>
+                                                        <label><input type=&quot;checkbox&quot; name=&quot;cbIVFurShaved&quot; checked />The fur was shaved. Please call us if you notice <span class=&quot;ddi_HE_SHE&quot;>[HE/SHE]</span> is licking the area excessively or if the area becomes red or irritated.</label>
+                                                    </div>
+                                                    <div class=&quot;checkbox&quot;>
+                                                        <label><input type=&quot;checkbox&quot; name=&quot;cbIVRemoveBand&quot; checked />Remove the bandage where the catheter was in 1 hour.</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </b-card-text>
+                                    </b-card-body>
+                                </b-collapse>
+                            </b-card>
+
+                            <b-card no-body class=&quot;mb-1&quot;>
+                                <b-card-header header-tag=&quot;header&quot; class=&quot;p-1&quot; role=&quot;tab&quot;>
+                                    <b-button block href=&quot;#&quot; v-b-toggle.accordion-6 variant=&quot;info&quot; class=&quot;text-left&quot;><h4 class=&quot;acc_head&quot;>Food and Water</h4></b-button>
+                                </b-card-header>
+                                <b-collapse id=&quot;accordion-6&quot; accordion=&quot;my-accordion&quot; role=&quot;tabpanel&quot;>
+                                    <b-card-body>
+                                        <b-card-text>
+                                            <div>
+                                                <div class=&quot;card&quot;>
+                                                    <div class=&quot;card-header&quot;>
+                                                        Feeding Instructions
+                                                    </div>
+                                                    <div class=&quot;card-body&quot;>
+                                                        <div class=&quot;checkbox&quot;>
+                                                            <label><input type=&quot;checkbox&quot; name=&quot;cbFeedNoExt&quot; checked />Feed <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> usual food in&amp;nbsp;<input type=&quot;text&quot; class=&quot;form-control input-sm tbSmall&quot; style=&quot;display:inline-block;&quot; id=&quot;tbFeedNoExtHours&quot; placeholder=&quot;hrs&quot; />&amp;nbsp;hours.</label>
+                                                        </div>
+                                                        <div class=&quot;checkbox&quot;>
+                                                            <label><input type=&quot;checkbox&quot; name=&quot;cbFeedAvoidNas&quot; checked />To avoid nausea, do not offer food immediately upon arriving home. Feed about half the usual amount after arriving home if <span class=&quot;ddi_HE_SHE&quot;>[HE/SHE]</span> seems hungry. </label>
+                                                        </div>
+                                                        <div class=&quot;checkbox&quot;>
+                                                            <label><input type=&quot;checkbox&quot; name=&quot;cbFeedDescApp&quot; checked />Some pets have a decreased appetite for 1-2 days following surgery. </label>
+                                                        </div>
+                                                        <div class=&quot;checkbox&quot;>
+                                                            <label><input type=&quot;checkbox&quot; name=&quot;cbFoodOther&quot; />Other: <input type=&quot;text&quot; class=&quot;form-control input-sm tbLarge&quot; id=&quot;tbWaterOther&quot; style=&quot;display:inline-block;&quot; /></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <div class=&quot;card&quot;>
+                                                    <div class=&quot;card-header&quot;>
+                                                        Water Restrictions
+                                                    </div>
+                                                    <div class=&quot;card-body&quot;>
+                                                        <div class=&quot;radio&quot;>
+                                                            <label><input type=&quot;radio&quot; name=&quot;rbWaterRestrict&quot; value=&quot;Limit&quot; checked />To avoid nausea, offer water in small amounts, every 1-2 hours until <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> is no longer thirsty. Then you can leave the bowl full as usual.</label>
+                                                        </div>
+                                                        <div class=&quot;radio&quot;>
+                                                            <label><input type=&quot;radio&quot; name=&quot;rbWaterRestrict&quot; value=&quot;Normal&quot; /><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> can have normal access to water.</label>
+                                                        </div>
+                                                        <div class=&quot;checkbox&quot;>
+                                                            <label><input type=&quot;checkbox&quot; name=&quot;cbWaterOther&quot; />Other: <input type=&quot;text&quot; class=&quot;form-control input-sm tbLarge&quot; id=&quot;tbWaterOther&quot; style=&quot;display:inline-block;&quot; /></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </b-card-text>
+                                    </b-card-body>
+                                </b-collapse>
+                            </b-card>
+
+                            <b-card no-body class=&quot;mb-1&quot;>
+                                <b-card-header header-tag=&quot;header&quot; class=&quot;p-1&quot; role=&quot;tab&quot;>
+                                    <b-button block href=&quot;#&quot; v-b-toggle.accordion-7 variant=&quot;info&quot; class=&quot;text-left&quot;><h4 class=&quot;acc_head&quot;>Activity</h4></b-button>
+                                </b-card-header>
+                                <b-collapse id=&quot;accordion-7&quot; accordion=&quot;my-accordion&quot; role=&quot;tabpanel&quot;>
+                                    <b-card-body>
+                                        <b-card-text>
+                                            <div>
+                                                <div class=&quot;divActRBG&quot;>
+                                                    <div class=&quot;form-group&quot;>
+                                                        <div class=&quot;radio&quot;>
+                                                            <label><input type=&quot;radio&quot; name=&quot;rbAct&quot; value=&quot;rbActResume&quot; checked /><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> can return to <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> regular activity starting&amp;nbsp;<input type=&quot;date&quot; class=&quot;form-control input-sm tbMed&quot; style=&quot;display:inline-block;&quot; id=&quot;tbActResumeDate&quot;>.</label>
+                                                        </div>
+                                                        <div class=&quot;radio&quot;>
+                                                            <label><input type=&quot;radio&quot; name=&quot;rbAct&quot; value=&quot;rbActLimit&quot; /><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> must have limited exercise while <span class=&quot;ddi_HE_SHE&quot;>[HE/SHE]</span> recovers.</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbActMonitor&quot; />No unsupervised, outdoor activity.</label>
+                                                </div>
+
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbActStairs&quot; />Carry <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> up and down stairs.</label>
+                                                </div>
+
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label>
+                                                        <input type=&quot;checkbox&quot; name=&quot;cbActKennel&quot; />Confine in a kennel, cage, or small enclosure. This could be stressful for you and <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>. Please ask our team for strategies to make this time as comfortable as possible.
+                                                    </label>
+                                                </div>
+
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label>
+                                                        <input type=&quot;checkbox&quot; name=&quot;cbActDefecate&quot; />Walk <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> on a leash outside only to urinate and defecate.
+                                                    </label>
+                                                </div>
+
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label>
+                                                        <input type=&quot;checkbox&quot; name=&quot;cbActWalkLimit&quot; />Walk <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> on a leash for no more than&amp;nbsp;<input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; style=&quot;display:inline-block;&quot; id=&quot;tbActWalkLimit&quot;>.
+                                                    </label>
+                                                </div>
+
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label>
+                                                        <input type=&quot;checkbox&quot; name=&quot;cbActRoughPlay&quot; />No rough play with pets or people until otherwise directed.
+                                                    </label>
+                                                </div>
+
+                                                <div class=&quot;form-group&quot;>
+                                                    <label for=&quot;tbActOther&quot;>Other:</label>
+                                                    <input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;tbActOther&quot; />
+                                                </div>
+                                            </div>
+                                        </b-card-text>
+                                    </b-card-body>
+                                </b-collapse>
+                            </b-card>
+
+                            <b-card no-body class=&quot;mb-1&quot;>
+                                <b-card-header header-tag=&quot;header&quot; class=&quot;p-1&quot; role=&quot;tab&quot;>
+                                    <b-button block href=&quot;#&quot; v-b-toggle.accordion-8 variant=&quot;info&quot; class=&quot;text-left&quot;><h4 class=&quot;acc_head&quot;>Medication</h4></b-button>
+                                </b-card-header>
+                                <b-collapse id=&quot;accordion-8&quot; accordion=&quot;my-accordion&quot; role=&quot;tabpanel&quot;>
+                                    <b-card-body>
+                                        <b-card-text>
+                                            <div>
+                                                <div class=&quot;form-group&quot;>
+                                                    <label for=&quot;rblMedGiven&quot;>Was medication given/prescribed?</label>
+                                                    <div>
+                                                        <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rblMedGiven&quot; value=&quot;Yes&quot; />Yes</label>
+                                                        <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rblMedGiven&quot; value=&quot;No&quot; checked />No</label>
+                                                    </div>
+                                                    <div class=&quot;clearfix&quot;></div>
+                                                </div>
+
+                                                <div class=&quot;divMedGiven&quot; style=&quot;display:none&quot;>
+                                                    <div class=&quot;card&quot;>
+                                                        <div class=&quot;card-header&quot;>
+                                                            <div>
+                                                                <label><input type=&quot;checkbox&quot; name=&quot;cbMedAntibiotic&quot; />Antibiotics</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class=&quot;divMedAntibiotic card-body&quot; style=&quot;display:none;&quot;>
+                                                            <b-container>
+                                                                <b-row>
+                                                                    <b-col lg=&quot;6&quot;>
+                                                                        <div class=&quot;card&quot;>
+                                                                            <div class=&quot;card-header&quot;>
+                                                                                <div>
+                                                                                    <label>Type: <input type=&quot;text&quot; id=&quot;tbAntibiotic1&quot; name=&quot;Antibiotic1&quot; class=&quot;form-control input-sm tbLarge&quot; style=&quot;display:inline-block;&quot; placeholder=&quot;First Antibiotic&quot; /></label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class=&quot;divAddlAntibiotic1 card-body&quot;>
+
+                                                                                <div class=&quot;form-group&quot;>
+                                                                                    <label for=&quot;tbMedAntibioticQty1&quot;>Give: <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; style=&quot;display:inline-block;&quot; id=&quot;tbMedAntibioticQty1&quot; placeholder=&quot;Quantity&quot; /></label>
+                                                                                </div>
+                                                                                <div class=&quot;form-group&quot;>
+                                                                                    <label for=&quot;rbMedAntibioticType1&quot;>
+                                                                                        Type:
+                                                                                        <span style=&quot;display:inline-block;&quot;>
+                                                                                            <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbMedAntibioticType1&quot; value=&quot;pill(s)&quot;>pill(s)</label>
+                                                                                            <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbMedAntibioticType1&quot; value=&quot;capsule(s)&quot;>capsule(s)</label>
+                                                                                            <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbMedAntibioticType1&quot; value=&quot;ml(s)&quot;>ml(s)</label>
+                                                                                        </span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class=&quot;form-group&quot;>
+                                                                                    <label for=&quot;tbMedAntibioticHrs1&quot;>Every: <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; style=&quot;display:inline-block;&quot; id=&quot;tbMedAntibioticHrs1&quot; placeholder=&quot;Hours&quot; /> hour(s)</label>
+                                                                                </div>
+                                                                                <div class=&quot;form-group&quot;>
+                                                                                    <label for=&quot;tbMedAntibioticDays1&quot;>Duration: <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; style=&quot;display:inline-block;&quot; id=&quot;tbMedAntibioticDays1&quot; placeholder=&quot;Days&quot; /> day(s)</label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </b-col>
+
+                                                                    <b-col lg=&quot;6&quot;>
+                                                                        <div class=&quot;card&quot;>
+                                                                            <div class=&quot;card-header&quot;>
+                                                                                <div>
+                                                                                    <label>Type: <input type=&quot;text&quot; id=&quot;tbAntibiotic2&quot; name=&quot;Antibiotic2&quot; class=&quot;form-control input-sm tbLarge&quot; style=&quot;display:inline-block;&quot; placeholder=&quot;Second Antibiotic&quot; /></label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class=&quot;divAddlAntibiotic2 card-body&quot;>
+
+                                                                                <div class=&quot;form-group&quot;>
+                                                                                    <label for=&quot;tbMedAntibioticQty2&quot;>Give: <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; style=&quot;display:inline-block;&quot; id=&quot;tbMedAntibioticQty2&quot; placeholder=&quot;Quantity&quot; /></label>
+                                                                                </div>
+                                                                                <div class=&quot;form-group&quot;>
+                                                                                    <label for=&quot;rbMedAntibioticType2&quot;>
+                                                                                        Type:
+                                                                                        <span style=&quot;display:inline-block;&quot;>
+                                                                                            <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbMedAntibioticType2&quot; value=&quot;pill(s)&quot;>pill(s)</label>
+                                                                                            <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbMedAntibioticType2&quot; value=&quot;capsule(s)&quot;>capsule(s)</label>
+                                                                                            <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbMedAntibioticType2&quot; value=&quot;ml(s)&quot;>ml(s)</label>
+                                                                                        </span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class=&quot;form-group&quot;>
+                                                                                    <label for=&quot;tbMedAntibioticHrs2&quot;>Every: <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; style=&quot;display:inline-block;&quot; id=&quot;tbMedAntibioticHrs2&quot; placeholder=&quot;Hours&quot; /> hour(s)</label>
+                                                                                </div>
+                                                                                <div class=&quot;form-group&quot;>
+                                                                                    <label for=&quot;tbMedAntibioticDays2&quot;>Duration: <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; style=&quot;display:inline-block;&quot; id=&quot;tbMedAntibioticDays2&quot; placeholder=&quot;Days&quot; /> day(s)</label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </b-col>
+                                                                </b-row>
+                                                            </b-container>
+                                                            <br />
+                                                            <div>
+                                                                <div class=&quot;checkbox&quot;>
+                                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbFirstDose&quot; />First dose is due <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; id=&quot;tbFirstDose&quot; placeholder=&quot;Due&quot; style=&quot;display:inline-block;&quot; />.</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label><input type=&quot;checkbox&quot; name=&quot;cbConvenia&quot; />Your pet received an antibiotic injection that will last for 10-14 days. </label>
+                                                            </div>
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label><input type=&quot;checkbox&quot; name=&quot;cbMedSideEffect&quot; checked />Side effects include vomiting and diarrhea. Please call if these occur.</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br />
+
+                                                    <div class=&quot;card&quot;>
+                                                        <div class=&quot;card-header&quot;>
+                                                            <div>
+                                                                <label><input type=&quot;checkbox&quot; name=&quot;cbMedPain&quot; />Pain medication to keep <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> comfortable after <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> procedure.</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class=&quot;divMedPain card-body&quot; style=&quot;display:none&quot;>
+                                                            <b-container>
+                                                                <b-row>
+                                                                    <b-col lg=&quot;6&quot;>
+                                                                        <div class=&quot;card&quot;>
+                                                                            <div class=&quot;card-header&quot;>
+                                                                                <div>
+                                                                                    <label>Type: <input type=&quot;text&quot; id=&quot;tbMedPain1&quot; name=&quot;MedPain1&quot; class=&quot;form-control input-sm tbLarge&quot; style=&quot;display:inline-block;&quot; placeholder=&quot;First Pain Medication&quot; /></label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class=&quot;divAddlMedPain1 card-body&quot;>
+
+                                                                                <div class=&quot;form-group&quot;>
+                                                                                    <label for=&quot;tbMedPainQty1&quot;>Give: <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; style=&quot;display:inline-block;&quot; id=&quot;tbMedPainQty1&quot; placeholder=&quot;Quantity&quot; /></label>
+                                                                                </div>
+                                                                                <div class=&quot;form-group&quot;>
+                                                                                    <label for=&quot;rbMedPainType1&quot;>
+                                                                                        Type:
+                                                                                        <span style=&quot;display:inline-block;&quot;>
+                                                                                            <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbMedPainType1&quot; value=&quot;pill(s)&quot;>pill(s)</label>
+                                                                                            <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbMedPainType1&quot; value=&quot;capsule(s)&quot;>capsule(s)</label>
+                                                                                            <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbMedPainType1&quot; value=&quot;ml(s)&quot;>ml(s)</label>
+                                                                                        </span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class=&quot;form-group&quot;>
+                                                                                    <label for=&quot;tbMedPainHrs1&quot;>Every: <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; style=&quot;display:inline-block;&quot; id=&quot;tbMedPainHrs1&quot; placeholder=&quot;Hours&quot; /> hour(s)</label>
+                                                                                </div>
+                                                                                <div class=&quot;form-group&quot;>
+                                                                                    <label for=&quot;tbMedPainDays1&quot;>Duration: <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; style=&quot;display:inline-block;&quot; id=&quot;tbMedPainDays1&quot; placeholder=&quot;Days&quot; /> day(s)</label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </b-col>
+                                                                    <b-col lg=&quot;6&quot;>
+                                                                        <div class=&quot;card&quot;>
+                                                                            <div class=&quot;card-header&quot;>
+                                                                                <div>
+                                                                                    <label>Type: <input type=&quot;text&quot; id=&quot;tbMedPain2&quot; name=&quot;MedPain2&quot; class=&quot;form-control input-sm tbLarge&quot; style=&quot;display:inline-block;&quot; placeholder=&quot;Second Pain Medication&quot; /></label>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class=&quot;divAddlMedPain2 card-body&quot;>
+
+                                                                                <div class=&quot;form-group&quot;>
+                                                                                    <label for=&quot;tbMedPainQty2&quot;>Give: <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; style=&quot;display:inline-block;&quot; id=&quot;tbMedPainQty2&quot; placeholder=&quot;Quantity&quot; /></label>
+                                                                                </div>
+                                                                                <div class=&quot;form-group&quot;>
+                                                                                    <label for=&quot;rbMedPainType2&quot;>
+                                                                                        Type:
+                                                                                        <span style=&quot;display:inline-block;&quot;>
+                                                                                            <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbMedPainType2&quot; value=&quot;pill(s)&quot;>pill(s)</label>
+                                                                                            <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbMedPainType2&quot; value=&quot;capsule(s)&quot;>capsule(s)</label>
+                                                                                            <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbMedPainType2&quot; value=&quot;ml(s)&quot;>ml(s)</label>
+                                                                                        </span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class=&quot;form-group&quot;>
+                                                                                    <label for=&quot;tbMedPainHrs2&quot;>Every: <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; style=&quot;display:inline-block;&quot; id=&quot;tbMedPainHrs2&quot; placeholder=&quot;Hours&quot; /> hour(s)</label>
+                                                                                </div>
+                                                                                <div class=&quot;form-group&quot;>
+                                                                                    <label for=&quot;tbMedPainDays2&quot;>Duration: <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; style=&quot;display:inline-block;&quot; id=&quot;tbMedPainDays2&quot; placeholder=&quot;Days&quot; /> day(s)</label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </b-col>
+                                                                </b-row>
+                                                            </b-container>
+
+                                                            <br />
+                                                            <div>
+                                                                <div class=&quot;checkbox&quot;>
+                                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbPmFirstDose&quot; />First dose is due <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; id=&quot;tbPmFirstDose&quot; style=&quot;display:inline-block;&quot; placeholder=&quot;Due&quot; />.</label>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <div class=&quot;checkbox&quot;>
+                                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbMedInject&quot; /><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> was given an injection to decrease <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> pain which will last for&amp;nbsp;<input type=&quot;text&quot; class=&quot;form-control input-sm tbSmall&quot; id=&quot;tbMedInjectHrs&quot; placeholder=&quot;hours&quot; style=&quot;display:inline-block;&quot; /> hours.</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <div class=&quot;form-group&quot;>
+                                                        <label for=&quot;tbMedOther&quot;>Other:</label>
+                                                        <textarea class=&quot;form-control&quot; id=&quot;tbMedOther&quot; rows=&quot;3&quot;></textarea>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </b-card-text>
+                                    </b-card-body>
+                                </b-collapse>
+                            </b-card>
+
+                            <b-card no-body class=&quot;mb-1&quot;>
+                                <b-card-header header-tag=&quot;header&quot; class=&quot;p-1&quot; role=&quot;tab&quot;>
+                                    <b-button block href=&quot;#&quot; v-b-toggle.accordion-9 variant=&quot;info&quot; class=&quot;text-left&quot;><h4 class=&quot;acc_head&quot;>Home Care</h4></b-button>
+                                </b-card-header>
+                                <b-collapse id=&quot;accordion-9&quot; accordion=&quot;my-accordion&quot; role=&quot;tabpanel&quot;>
+                                    <b-card-body>
+                                        <b-card-text>
+                                            <div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbHCNormalRoutine&quot; checked /><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> can return to <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> normal routine.</label>
+                                                </div>
+                                                <br />
+                                                <div class=&quot;divHCAdditional&quot; style=&quot;display:none;&quot;>
+
+                                                    <div class=&quot;card&quot;>
+                                                        <div class=&quot;card-header&quot;>
+                                                            <label><input type=&quot;checkbox&quot; name=&quot;cbHCIncisionCare&quot; />Incision Care</label>
+                                                        </div>
+                                                        <div class=&quot;divHCIncisionAdditional card-body&quot; style=&quot;display:none;&quot;>
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label><input type=&quot;checkbox&quot; name=&quot;cbHCIncisionLick&quot; />Do not allow <span class=&quot;ddi_HIM_HER&quot;>[HIM/HER]</span> to lick, rub, or scratch <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> incision as this can lead to infection, accidental suture/staple removal, or damage to the surgery site that may require costly additional repair.</label>
+                                                            </div>
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label><input type=&quot;checkbox&quot; name=&quot;cbHCIncisionECollar&quot; /><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> must wear an E-collar or &quot;cone&quot; at all times to stop <span class=&quot;ddi_HIM_HER&quot;>[HIM/HER]</span> from damaging the incision.</label>
+                                                            </div>
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label><input type=&quot;checkbox&quot; name=&quot;cbHCIncisionProtect&quot; />Use <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; id=&quot;tbHCIncisionProtect&quot; style=&quot;display:inline-block;&quot; /> to protect <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>'s surgical site.</label>
+                                                            </div>
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label><input type=&quot;checkbox&quot; name=&quot;cbHCIncisionClean&quot; />Clean the incision with <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; id=&quot;tbHCIncisionClean&quot; style=&quot;display:inline-block;&quot; /> every <input type=&quot;text&quot; class=&quot;form-control input-sm tbSmall&quot; id=&quot;tbHCIncisionCleanHours&quot; style=&quot;display:inline-block;&quot; /> hours until otherwise directed.</label>
+                                                            </div>
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label><input type=&quot;checkbox&quot; name=&quot;cbHCIncisionApply&quot; />Apply <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; id=&quot;tbHCIncisionApply&quot; style=&quot;display:inline-block;&quot; /> to the incision every <input type=&quot;text&quot; class=&quot;form-control input-sm tbSmall&quot; id=&quot;tbHCIncisionApplyHours&quot; style=&quot;display:inline-block;&quot; /> hours until otherwise directed.</label>
+                                                            </div>
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label><input type=&quot;checkbox&quot; name=&quot;cbHCIncisionOther&quot; />Other <input type=&quot;text&quot; class=&quot;form-control input-sm tbLarge&quot; id=&quot;tbHCIncisionOther&quot; style=&quot;display:inline-block;&quot; /></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <div class=&quot;card&quot;>
+                                                        <div class=&quot;card-header&quot;>
+                                                            <label><input type=&quot;checkbox&quot; name=&quot;cbHCBandageCare&quot; />Bandage Care</label>
+                                                        </div>
+                                                        <div class=&quot;divHCBandageAdditional card-body&quot; style=&quot;display:none;&quot;>
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label><input type=&quot;checkbox&quot; name=&quot;cbHCBandageLick&quot; checked />Do not allow <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> to chew or lick <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> bandage.</label>
+                                                            </div>
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label><input type=&quot;checkbox&quot; name=&quot;cbHCBandageClean&quot; checked />Keep the bandage clean and dry.</label>
+                                                            </div>
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label><input type=&quot;checkbox&quot; name=&quot;cbHCBandageCover&quot; />When <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> goes outside, consider covering the bandage with a plastic bag to keep it dry.</label>
+                                                            </div>
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label><input type=&quot;checkbox&quot; name=&quot;cbHCBandageToes&quot; />Check <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> toes twice a day for swelling. Compare the toes in the bandage to the normal toes and make sure they are the same size and color. If you notice a discrepency, please call our hospital.</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <div class=&quot;form-group&quot;>
+                                                        <label for=&quot;tbHomeCareOther&quot;>Other:</label>
+                                                        <input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;tbHomeCareOther&quot; />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </b-card-text>
+                                    </b-card-body>
+                                </b-collapse>
+                            </b-card>
+
+                            <b-card no-body class=&quot;mb-1&quot;>
+                                <b-card-header header-tag=&quot;header&quot; class=&quot;p-1&quot; role=&quot;tab&quot;>
+                                    <b-button block href=&quot;#&quot; v-b-toggle.accordion-10 variant=&quot;info&quot; class=&quot;text-left&quot;><h4 class=&quot;acc_head&quot;>Seek Immediate Veterinary Care if...</h4></b-button>
+                                </b-card-header>
+                                <b-collapse id=&quot;accordion-10&quot; accordion=&quot;my-accordion&quot; role=&quot;tabpanel&quot;>
+                                    <b-card-body>
+                                        <b-card-text>
+                                            <div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbECRedness&quot; checked />The incision has signs of redness, swelling, or discharge, or if any sutures are missing.</label>
+                                                </div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbECAgitated&quot; checked />Seems agitated or uncomfortable for more than 2 hours.</label>
+                                                </div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbECDiffBreathe&quot; checked />Has difficulty breathing.</label>
+                                                </div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbECSquinting&quot; checked />Begins squinting <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> eyes for more than 1 hour at a time.</label>
+                                                </div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbECWounds&quot; checked />Develops any wounds on <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> body.</label>
+                                                </div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbECNoEat&quot; checked />Refuses to eat or drink for more than 12 hours.</label>
+                                                </div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbECNoDefecate&quot; checked />Does not defecate for more than 48 hours.</label>
+                                                </div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbECDiarrhea&quot; checked />Has diarrhea for more than 12 hours.</label>
+                                                </div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbECVomit&quot; checked />Vomits more than three times in 12 hours.</label>
+                                                </div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbECBumping&quot; checked />Begins bumping into objects.</label>
+                                                </div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbECDiffWalk&quot; checked />Has difficulty walking or jumping.</label>
+                                                </div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbECSmell&quot; checked />The bandage has a foul smell.</label>
+                                                </div>
+                                                <div class=&quot;form-group&quot;>
+                                                    <label for=&quot;tbECOther&quot;>Other:</label>
+                                                    <input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;tbECOther&quot; />
+                                                </div>
+                                            </div>
+                                        </b-card-text>
+                                    </b-card-body>
+                                </b-collapse>
+                            </b-card>
+
+                            <b-card no-body class=&quot;mb-1&quot;>
+                                <b-card-header header-tag=&quot;header&quot; class=&quot;p-1&quot; role=&quot;tab&quot;>
+                                    <b-button block href=&quot;#&quot; v-b-toggle.accordion-11 variant=&quot;info&quot; class=&quot;text-left&quot;><h4 class=&quot;acc_head&quot;>Recheck</h4></b-button>
+                                </b-card-header>
+                                <b-collapse id=&quot;accordion-11&quot; accordion=&quot;my-accordion&quot; role=&quot;tabpanel&quot;>
+                                    <b-card-body>
+                                        <b-card-text>
+                                            <div>
+                                                <div class=&quot;divRCNoExt&quot;>
+                                                    <div class=&quot;checkbox&quot;>
+                                                        <label><input type=&quot;checkbox&quot; name=&quot;cbRCSchedule&quot; />Please schedule an appointment to have <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s <input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; id=&quot;tbRCScheduleProcedure&quot; style=&quot;display:inline-block;&quot; /> repeated in <input type=&quot;text&quot; class=&quot;form-control input-sm tbSmall&quot; id=&quot;tbRCScheduleDays&quot; style=&quot;display:inline-block;&quot; /> to assess <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> response to therapy.</label>
+                                                    </div>
+
+                                                    <div class=&quot;checkbox&quot;>
+                                                        <label>
+                                                            <input type=&quot;checkbox&quot; name=&quot;cbRCDoctor&quot; />Please recheck with Dr. <span class=&quot;ddi_VETERINARIAN_NAME&quot;>[VETERINARIAN NAME]</span> in <input type=&quot;text&quot; class=&quot;form-control input-sm tbSmall&quot; id=&quot;tbRCDoctorNum&quot; style=&quot;display:inline-block;&quot; />
+                                                        </label>
+                                                        <span style=&quot;display:inline-block;&quot;>
+                                                            &amp;nbsp;
+                                                            <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbRCDoctorNum&quot; value=&quot;days&quot; checked>days</label>
+                                                            <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbRCDoctorNum&quot; value=&quot;weeks&quot;>weeks</label>
+                                                            <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbRCDoctorNum&quot; value=&quot;months&quot;>months</label>
+                                                        </span>
+
+                                                    </div>
+
+                                                    <div class=&quot;card&quot;>
+                                                        <div class=&quot;card-header&quot;>
+                                                            <label><input type=&quot;checkbox&quot; name=&quot;cbRCIncisionCare&quot; />Incision Care</label>
+                                                        </div>
+                                                        <div class=&quot;card-body divRCIncisionCare&quot; style=&quot;display:none;&quot;>
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label>
+                                                                    <input type=&quot;checkbox&quot; name=&quot;cbRCICDrain&quot; /><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s drain should be removed by our team in
+                                                                </label>
+                                                                <span style=&quot;display:inline-block;&quot;>
+                                                                    &amp;nbsp;
+                                                                    <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbRCICDrain&quot; value=&quot;1-3 days&quot;>1-3 days</label>
+                                                                    <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbRCICDrain&quot; value=&quot;3-5 days&quot;>3-5 days</label>
+                                                                    <label class=&quot;radio-inline&quot;><input type=&quot;radio&quot; name=&quot;rbRCICDrain&quot; value=&quot;other&quot;><input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; id=&quot;tbRCICDrainOther&quot; style=&quot;display:inline-block;&quot; /></label>
+                                                                </span>
+                                                            </div>
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label>
+                                                                    <input type=&quot;radio&quot; name=&quot;rbRCICSuture&quot; value=&quot;rbRCICSutureTeam&quot; /><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s sutures should be removed by our team in
+                                                                </label>
+                                                            </div>
+                                                            <div class=&quot;cbindent checkbox&quot;>
+                                                                <div class=&quot;radio&quot;>
+                                                                    <label><input type=&quot;radio&quot; name=&quot;rbRCICSutureTeamDays&quot; value=&quot;3-5 days&quot;>3-5 days</label>
+                                                                </div>
+                                                                <div class=&quot;radio&quot;>
+                                                                    <label><input type=&quot;radio&quot; name=&quot;rbRCICSutureTeamDays&quot; value=&quot;5-7 days&quot;>5-7 days</label>
+                                                                </div>
+                                                                <div class=&quot;radio&quot;>
+                                                                    <label><input type=&quot;radio&quot; name=&quot;rbRCICSutureTeamDays&quot; value=&quot;7-10 days&quot;>7-10 days</label>
+                                                                </div>
+                                                                <div class=&quot;radio&quot;>
+                                                                    <label><input type=&quot;radio&quot; name=&quot;rbRCICSutureTeamDays&quot; value=&quot;10-14 days&quot;>10-14 days</label>
+                                                                </div>
+                                                                <div class=&quot;radio&quot;>
+                                                                    <label><input type=&quot;radio&quot; name=&quot;rbRCICSutureTeamDays&quot; value=&quot;other&quot;><input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; id=&quot;tbRCICSutureTeamOther&quot; style=&quot;display:inline-block;&quot; /></label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label>
+                                                                    <input type=&quot;radio&quot; name=&quot;rbRCICSuture&quot; value=&quot;rbRCICSutureStaples&quot; /><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s skin staples should be removed by our team in
+                                                                </label>
+                                                            </div>
+                                                            <div class=&quot;cbindent checkbox&quot;>
+                                                                <div class=&quot;radio&quot;>
+                                                                    <label><input type=&quot;radio&quot; name=&quot;rbRCICSutureStaplesDays&quot; value=&quot;3-5 days&quot;>3-5 days</label>
+                                                                </div>
+                                                                <div class=&quot;radio&quot;>
+                                                                    <label><input type=&quot;radio&quot; name=&quot;rbRCICSutureStaplesDays&quot; value=&quot;5-7 days&quot;>5-7 days</label>
+                                                                </div>
+                                                                <div class=&quot;radio&quot;>
+                                                                    <label><input type=&quot;radio&quot; name=&quot;rbRCICSutureStaplesDays&quot; value=&quot;7-10 days&quot;>7-10 days</label>
+                                                                </div>
+                                                                <div class=&quot;radio&quot;>
+                                                                    <label><input type=&quot;radio&quot; name=&quot;rbRCICSutureStaplesDays&quot; value=&quot;10-14 days&quot;>10-14 days</label>
+                                                                </div>
+                                                                <div class=&quot;radio&quot;>
+                                                                    <label><input type=&quot;radio&quot; name=&quot;rbRCICSutureStaplesDays&quot; value=&quot;other&quot;><input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; id=&quot;tbRCICSutureStaplesOther&quot; style=&quot;display:inline-block;&quot; /></label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label>
+                                                                    <input type=&quot;radio&quot; name=&quot;rbRCICSuture&quot; value=&quot;rbRCICSutureAbsorb&quot; />The sutures in <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s skin will absorb over time so they do not need to be removed.
+                                                                </label>
+                                                            </div>
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label>
+                                                                    <input type=&quot;radio&quot; name=&quot;rbRCICSuture&quot; value=&quot;rbRCICSutureGlue&quot; />Skin glue was used to close <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s incision so no sutures need to be removed.
+                                                                </label>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <div class=&quot;card&quot;>
+                                                        <div class=&quot;card-header&quot;>
+                                                            <label><input type=&quot;checkbox&quot; name=&quot;cbRCBandageCare&quot; />Bandage Care</label>
+                                                        </div>
+                                                        <div class=&quot;card-body divRCBandageCare&quot; style=&quot;display:none;&quot;>
+                                                            <div class=&quot;checkbox&quot;>
+                                                                <label>
+                                                                    <input type=&quot;checkbox&quot; name=&quot;cbRCBCChanged&quot; /><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s bandage should be changed by our team in <span class=&quot;ddi_rbRCBCChangedDays&quot;>[number of days]</span> or sooner if it becomes soiled, wet, foul-smelling, or damaged.
+                                                                </label>
+                                                            </div>
+                                                            <div class=&quot;cbindent checkbox&quot;>
+                                                                <div class=&quot;radio&quot;>
+                                                                    <label><input type=&quot;radio&quot; name=&quot;rbRCBCChangedDays&quot; value=&quot;3-5 days&quot;>3-5 days</label>
+                                                                </div>
+                                                                <div class=&quot;radio&quot;>
+                                                                    <label><input type=&quot;radio&quot; name=&quot;rbRCBCChangedDays&quot; value=&quot;5-7 days&quot;>5-7 days</label>
+                                                                </div>
+                                                                <div class=&quot;radio&quot;>
+                                                                    <label><input type=&quot;radio&quot; name=&quot;rbRCBCChangedDays&quot; value=&quot;7-10 days&quot;>7-10 days</label>
+                                                                </div>
+                                                                <div class=&quot;radio&quot;>
+                                                                    <label><input type=&quot;radio&quot; name=&quot;rbRCBCChangedDays&quot; value=&quot;10-14 days&quot;>10-14 days</label>
+                                                                </div>
+                                                                <div class=&quot;radio&quot;>
+                                                                    <label><input type=&quot;radio&quot; name=&quot;rbRCBCChangedDays&quot; value=&quot;other&quot;><input type=&quot;text&quot; class=&quot;form-control input-sm tbMed&quot; id=&quot;tbRCBCChangedDaysOther&quot; style=&quot;display:inline-block;&quot; /></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <div class=&quot;checkbox&quot;>
+                                                        <label>
+                                                            <input type=&quot;checkbox&quot; name=&quot;cbRCXray&quot; />Please schedule an appointment to have <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s radiographs (x-rays) repeated in <input type=&quot;text&quot; class=&quot;form-control input-sm tbSmall&quot; id=&quot;tbRCXrayDays&quot; style=&quot;display:inline-block;&quot; /> <span class=&quot;ddi_rbRCXrayDWM&quot;>days</span> to assess <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> response to therapy.
+                                                        </label>
+                                                    </div>
+                                                    <div class=&quot;cbindent checkbox&quot;>
+                                                        <div class=&quot;radio&quot;>
+                                                            <label><input type=&quot;radio&quot; name=&quot;rbRCXrayDWM&quot; value=&quot;days&quot; checked>days</label>
+                                                        </div>
+                                                        <div class=&quot;radio&quot;>
+                                                            <label><input type=&quot;radio&quot; name=&quot;rbRCXrayDWM&quot; value=&quot;weeks&quot;>weeks</label>
+                                                        </div>
+                                                        <div class=&quot;radio&quot;>
+                                                            <label><input type=&quot;radio&quot; name=&quot;rbRCXrayDWM&quot; value=&quot;months&quot;>months</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class=&quot;checkbox&quot;>
+                                                        <label><input type=&quot;checkbox&quot; name=&quot;cbRCOther&quot; />Other: <input type=&quot;text&quot; class=&quot;form-control input-sm tbLarge&quot; id=&quot;tbRCOther&quot; style=&quot;display:inline-block;&quot; /></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </b-card-text>
+                                    </b-card-body>
+                                </b-collapse>
+                            </b-card>
+
+                            <b-card no-body class=&quot;mb-1&quot;>
+                                <b-card-header header-tag=&quot;header&quot; class=&quot;p-1&quot; role=&quot;tab&quot;>
+                                    <b-button block href=&quot;#&quot; v-b-toggle.accordion-12 variant=&quot;info&quot; class=&quot;text-left&quot;><h4 class=&quot;acc_head&quot;>Final Comments</h4></b-button>
+                                </b-card-header>
+                                <b-collapse id=&quot;accordion-12&quot; accordion=&quot;my-accordion&quot; role=&quot;tabpanel&quot;>
+                                    <b-card-body>
+                                        <b-card-text>
+                                            <div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbGPLovely&quot; checked /><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> is a lovely patient.</label>
+                                                </div>
+                                                <div class=&quot;checkbox&quot;>
+                                                    <label><input type=&quot;checkbox&quot; name=&quot;cbGPManyFans&quot; checked /><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> has many fans here at the hospital! </label>
+                                                </div>
+                                                <div class=&quot;form-group&quot;>
+                                                    <label for=&quot;tbGPOther&quot;>Other:</label>
+                                                    <input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;tbGPOther&quot; />
+                                                </div>
+                                            </div>
+                                        </b-card-text>
+                                    </b-card-body>
+                                </b-collapse>
+                            </b-card>
+
+                        </div>
+                    </template>
+                    <br />
+                    <p class=&quot;text-center&quot;><a id=&quot;aViewForm&quot; href=&quot;#aPageTop&quot; class=&quot;button button--red mediaCTA__button&quot;>Back to Top</a></p>
+                </div>
+            </b-tab>
+
+            <b-tab title=&quot;View the Instructions&quot;>
+                <div id=&quot;divPrintableForm&quot; class=&quot;marg10&quot;>
+                    <div style=&quot;border: dotted 1px #454342;padding: 10px;&quot;>
+                        <div id=&quot;divToPrint&quot;>
+                            <div><img src=&quot;https://aaha.org/wp-content/uploads/2024/04/diabetes_dischargeinstructions_banner.jpg&quot; alt=&quot;Discharge Instructions&quot; style=&quot;width:100%&quot; /></div>
+
+                            <br />
+                            <div><span class=&quot;ddi_HOSPITAL_NAME&quot;>[HOSPITAL NAME]</span></div>
+                            <div><span class=&quot;ddi_HOSPITAL_ADDRESS&quot;>[PRACTICE ADDRESS]</span></div>
+                            <div><span class=&quot;ddi_HOSPITAL_PHONE_NUMBER&quot;>[PRACTICE PHONE NUMBER]</span></div>
+                            <br />
+                            <div><span class=&quot;ddi_DATE&quot;>[DATE]</span></div>
+                            <br />
+                            <p>To <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s caregivers,</p>
+                            <p>You&amp;rsquo;re doing a great job caring for <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>. Your veterinary team at <span class=&quot;ddi_HOSPITAL_NAME&quot;>[HOSPITAL NAME]</span> will continue to support you as you manage <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> health.</p>
+                            <p>Dr. <span class=&quot;ddi_VETERINARIAN_NAME&quot;>[VETERINARIAN NAME]</span> wanted to share this important information with you concerning <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s visit today.</p>
+
+                            <h4>Anesthesia</h4>
+                            <p>
+                                <span class=&quot;ddi_AnesDidWell&quot;><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> did well under anesthesia. </span>
+                                <span class=&quot;ddi_AnesWoke&quot; style=&quot;display:none;&quot;><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> woke up very smoothly. </span>
+                                <span class=&quot;ddi_AnesComps&quot; style=&quot;display:none;&quot;><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> had some complications under anesthesia. </span> <span class=&quot;ddi_tbAnesExp&quot;> </span>
+                            </p>
+                            <ul>
+                                <li>Since anesthesia can decrease tear production, an ointment was placed in <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> eyes to protect them while <span class=&quot;ddi_HE_SHE&quot;>[HE/SHE]</span> was asleep. This oily residue will dissipate over the next few days.</li>
+                                <li>Because of the anesthesia, <span class=&quot;ddi_HE_SHE&quot;>[HE/SHE]</span> may be sleepy and wobbly for the next <span class=&quot;ddi_AnesRecTime&quot;>1-2 hours</span>. However, some pets have the opposite reaction and seem more agitated or whiny.</li>
+                            </ul>
+                            <p><span class=&quot;ddi_IVWasUsed&quot;>An IV catheter was placed to administer IV fluids, anesthesia, and other medications. </span></p>
+                            <ul class=&quot;ddi_AddlCatheter&quot;>
+                                <li class=&quot;ddi_IVFurShaved&quot;>The fur was shaved. Please call us if you notice <span class=&quot;ddi_HE_SHE&quot;>[HE/SHE]</span> is licking the area excessively or if the area becomes red or irritated. </li>
+                                <li class=&quot;ddi_IVRemoveBand&quot;>Remove the bandage where the catheter was in 1 hour. </li>
+                            </ul>
+
+                            <h4>Food and Water</h4>
+                            <p>Feeding Instructions:</p>
+                            <ul>
+                                <li class=&quot;ddi_FeedWithExt&quot; style=&quot;display: none&quot;>Feed soft food for the next <span class=&quot;ddi_FeedWithExtDays&quot;></span> days. </li>
+                                <li class=&quot;ddi_FeedNoExt&quot;>Feed <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> usual food in <span class=&quot;ddi_FeedNoExtHours&quot;>1-2</span> hours. </li>
+                                <li class=&quot;ddi_FeedAvoidNas&quot;>To avoid nausea, do not offer food immediately upon arriving home. Feed about half the usual amount after arriving home if <span class=&quot;ddi_HE_SHE&quot;>[HE/SHE]</span> seems hungry. </li>
+                                <li class=&quot;ddi_FeedDescApp&quot;>Some pets have a decreased appetite for 1-2 days following surgery. </li>
+                                <li class=&quot;ddi_cbFoodOther&quot; style=&quot;display:none;&quot;><span class=&quot;ddi_tbFoodOther&quot;></span></li>
+                            </ul>
+                            <p>Water Restrictions:</p>
+                            <ul>
+                                <li class=&quot;ddi_WaterLimit&quot;>To avoid nausea, offer water in small amounts, every 1-2 hours until <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> is no longer thirsty. Then you can leave the bowl full as usual. </li>
+                                <li class=&quot;ddi_WaterNormal&quot; style=&quot;display:none;&quot;><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> can have normal access to water.</li>
+                                <li class=&quot;ddi_cbWaterOther&quot; style=&quot;display:none;&quot;><span class=&quot;ddi_tbWaterOther&quot;></span></li>
+                            </ul>
+
+                            <h4>Activity</h4>
+                            <ul>
+                                <li class=&quot;ddi_ActResume&quot;><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> can return to <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> regular activity starting <span class=&quot;ddi_tbActResumeDate&quot;></span>.</li>
+                                <li class=&quot;ddi_ActLimit&quot; style=&quot;display:none;&quot;><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> must have limited exercise while <span class=&quot;ddi_HE_SHE&quot;>[HE/SHE]</span> recovers.</li>
+
+                                <li class=&quot;ddi_ActMonitor&quot; style=&quot;display:none;&quot;>No unsupervised, outdoor activity.</li>
+                                <li class=&quot;ddi_ActStairs&quot; style=&quot;display:none;&quot;>Carry <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> up and down stairs.</li>
+                                <li class=&quot;ddi_ActKennel&quot; style=&quot;display:none;&quot;>Confine in a kennel, cage, or small enclosure. This could be stressful for you and <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>. Please ask our team for strategies to make this time as comfortable as possible.</li>
+                                <li class=&quot;ddi_ActDefecate&quot; style=&quot;display:none;&quot;>Walk <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> on a leash outside only to urinate and defecate.</li>
+                                <li class=&quot;ddi_ActWalkLimit&quot; style=&quot;display:none;&quot;>Walk <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> on a leash for no more than <span class=&quot;ddi_ActWalkLimitText&quot;></span>.</li>
+                                <li class=&quot;ddi_ActRoughPlay&quot; style=&quot;display:none;&quot;>No rough play with pets or people until otherwise directed.</li>
+                                <li class=&quot;ddi_ActOther&quot; style=&quot;display: none&quot;><span class=&quot;ddi_tbActOther&quot;></span></li>
+                            </ul>
+
+                            <div>
+                                <h4>Medication</h4>
+                                <div class=&quot;ddi_NoMedication&quot;>
+                                    <p>No medications are needed at this time.</p>
+                                </div>
+                                <div class=&quot;ddi_Medication&quot; style=&quot;display:none&quot;>
+                                    <p>Dr. <span class=&quot;ddi_VETERINARIAN_NAME&quot;>[VETERINARIAN NAME]</span> prescribed the following for <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>:</p>
+                                    <ul class=&quot;ddi_MedAntibiotic&quot; style=&quot;display:none; padding-bottom:0px;&quot;>
+                                        <li>
+                                            Antibiotics to decrease the bacteria that could enter <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s blood stream.
+                                            <ul style=&quot;padding-bottom:0px;&quot;>
+                                                <li class=&quot;ddi_Antibiotic1&quot; style=&quot;display:none;&quot;><span class=&quot;ddi_tbAntibiotic1&quot;></span> : Give <span class=&quot;ddi_tbMedAntibioticQty1&quot;></span> <span class=&quot;ddi_rbMedAntibioticType1&quot;></span> by mouth every <span class=&quot;ddi_tbMedAntibioticHrs1&quot;></span> hour(s) for <span class=&quot;ddi_tbMedAntibioticDays1&quot;></span> day(s).</li>
+                                                <li class=&quot;ddi_Antibiotic2&quot; style=&quot;display:none;&quot;><span class=&quot;ddi_tbAntibiotic2&quot;></span> : Give <span class=&quot;ddi_tbMedAntibioticQty2&quot;></span> <span class=&quot;ddi_rbMedAntibioticType2&quot;></span> by mouth every <span class=&quot;ddi_tbMedAntibioticHrs2&quot;></span> hour(s) for <span class=&quot;ddi_tbMedAntibioticDays2&quot;></span> day(s).</li>
+
+                                                <li class=&quot;ddi_FirstDose&quot; style=&quot;display:none;&quot;>First dose is due <span class=&quot;ddi_tbFirstDose&quot;></span>.</li>
+                                                <li class=&quot;ddi_MedConvenia&quot; style=&quot;display:none&quot;><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> received an antibiotic injection that will last for 10-14 days</li>
+                                                <li class=&quot;ddi_MedSideEffect&quot;>Side effects include vomiting and diarrhea. Please call if these occur.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+                                    <ul class=&quot;ddi_MedPain&quot; style=&quot;display:none; padding-bottom:0px;&quot;>
+                                        <li>
+                                            Pain medication to keep <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> comfortable after <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> procedure.
+                                            <ul style=&quot;padding-bottom:0px;&quot;>
+                                                <li class=&quot;ddi_MedPain1&quot; style=&quot;display:none&quot;><span class=&quot;ddi_tbMedPain1&quot;></span> : Give <span class=&quot;ddi_tbMedPainQty1&quot;>1</span> <span class=&quot;ddi_rbMedPainType1&quot;></span> by mouth every <span class=&quot;ddi_tbMedPainHrs1&quot;></span> hour(s) for <span class=&quot;ddi_tbMedPainDays1&quot;></span> day(s).</li>
+                                                <li class=&quot;ddi_MedPain2&quot; style=&quot;display:none&quot;><span class=&quot;ddi_tbMedPain2&quot;></span> : Give <span class=&quot;ddi_tbMedPainQty2&quot;>1</span> <span class=&quot;ddi_rbMedPainType2&quot;></span> by mouth every <span class=&quot;ddi_tbMedPainHrs2&quot;></span> hour(s) for <span class=&quot;ddi_tbMedPainDays2&quot;></span> day(s).</li>
+
+                                                <li class=&quot;ddi_PmFirstDose&quot; style=&quot;display:none&quot;>First dose is due <span class=&quot;ddi_tbPmFirstDose&quot;></span>.</li>
+                                                <li class=&quot;ddi_MedInject&quot; style=&quot;display:none&quot;><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> was given an injection to decrease <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> pain which will last for <span class=&quot;ddi_tbMedInjectHrs&quot;></span> hours.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class=&quot;ddi_OtherMed&quot; style=&quot;display: none&quot;>
+                                        <li><span class=&quot;ddi_tbMedOther&quot;></span></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h4>Home Care</h4>
+                            <div class=&quot;ddi_HCNotNeeded&quot;>
+                                <ul>
+                                    <li><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> can return to <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> normal routine.</li>
+                                </ul>
+                            </div>
+                            <div class=&quot;ddi_HCNeeded&quot; style=&quot;display:none;&quot;>
+                                <div class=&quot;ddi_HCIncision&quot; style=&quot;display:none;&quot;>
+                                    <ul style=&quot;padding-bottom:0px;&quot;>
+                                        <li>
+                                            Incision Care
+                                            <ul style=&quot;padding-bottom:0px;&quot;>
+                                                <li class=&quot;ddi_HCIncisionLick&quot; style=&quot;display:none&quot;>Do not allow <span class=&quot;ddi_HIM_HER&quot;>[HIM/HER]</span> to lick, rub, or scratch <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> incision as this can lead to infection, accidental suture/staple removal, or damage to the surgery site that may require costly additional repair.</li>
+                                                <li class=&quot;ddi_HCIncisionECollar&quot; style=&quot;display:none&quot;><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> must wear an E-collar or &quot;cone&quot; at all times to stop <span class=&quot;ddi_HIM_HER&quot;>[HIM/HER]</span> from damaging the incision.</li>
+                                                <li class=&quot;ddi_HCIncisionProtect&quot; style=&quot;display:none&quot;>Use <span class=&quot;ddi_tbHCIncisionProtect&quot;> </span> to protect <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>'s surgical site.</li>
+                                                <li class=&quot;ddi_HCIncisionClean&quot; style=&quot;display:none&quot;>Clean the incision with <span class=&quot;ddi_tbHCIncisionClean&quot;> </span> every <span class=&quot;ddi_tbHCIncisionCleanHours&quot;> </span> hours until otherwise directed.</li>
+                                                <li class=&quot;ddi_HCIncisionApply&quot; style=&quot;display:none&quot;>Apply <span class=&quot;ddi_tbHCIncisionApply&quot;> </span> to the incision every <span class=&quot;ddi_tbHCIncisionApplyHours&quot;> </span> hours until otherwise directed.</li>
+                                                <li class=&quot;ddi_HCIncisionOther&quot; style=&quot;display:none&quot;><span class=&quot;ddi_tbHCIncisionOther&quot;></span></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class=&quot;ddi_HCBandage&quot; style=&quot;display:none;&quot;>
+                                    <ul style=&quot;padding-bottom:0px;&quot;>
+                                        <li>
+                                            Bandage Care
+                                            <ul style=&quot;padding-bottom:0px;&quot;>
+                                                <li class=&quot;ddi_HCBandageLick&quot;>Do not allow <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> to chew or lick <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> bandage.</li>
+                                                <li class=&quot;ddi_HCBandageClean&quot;>Keep the bandage clean and dry.</li>
+                                                <li class=&quot;ddi_HCBandageCover&quot; style=&quot;display:none&quot;>When <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> goes outside, consider covering the bandage with a plastic bag to keep it dry.</li>
+                                                <li class=&quot;ddi_HCBandageToes&quot; style=&quot;display:none&quot;>Check <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> toes twice a day for swelling. Compare the toes in the bandage to the normal toes and make sure they are the same size and color. If you notice a discrepency, please call our hospital.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <ul class=&quot;ddi_HomeCareOther&quot; style=&quot;display:none;&quot;>
+                                    <li><span class=&quot;ddi_tbHomeCareOther&quot;></span></li>
+                                </ul>
+                            </div>
+
+                            <h4>Seek immediate veterinary care if <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>...</h4>
+                            <ul>
+                                <li class=&quot;ddi_ECRedness&quot;>The incision has signs of redness, swelling, or discharge, or if any sutures are missing.</li>
+                                <li class=&quot;ddi_ECAgitated&quot;>Seems agitated or uncomfortable for more than 2 hours.</li>
+                                <li class=&quot;ddi_ECDiffBreathe&quot;>Has difficulty breathing.</li>
+                                <li class=&quot;ddi_ECSquinting&quot;>Begins squinting <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> eyes for more than 1 hour at a time.</li>
+                                <li class=&quot;ddi_ECWounds&quot;>Develops any wounds on <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> body.</li>
+                                <li class=&quot;ddi_ECNoEat&quot;>Refuses to eat or drink for more than 12 hours.</li>
+                                <li class=&quot;ddi_ECNoDefecate&quot;>Does not defecate for more than 48 hours.</li>
+                                <li class=&quot;ddi_ECDiarrhea&quot;>Has diarrhea for more than 12 hours.</li>
+                                <li class=&quot;ddi_ECVomit&quot;>Vomits more than three times in 12 hours.</li>
+                                <li class=&quot;ddi_ECBumping&quot;>Begins bumping into objects.</li>
+                                <li class=&quot;ddi_ECDiffWalk&quot;>Has difficulty walking or jumping.</li>
+                                <li class=&quot;ddi_ECSmell&quot;>The bandage has a foul smell.</li>
+                                <li class=&quot;ddi_ECOther&quot; style=&quot;display: none&quot;><span class=&quot;ddi_tbECOther&quot;></span></li>
+                            </ul>
+
+                            <p>If we are not available and you need help, please contact <span class=&quot;ddi_ER_HOSPITAL&quot;>[ER HOSPITAL]</span> at <span class=&quot;ddi_ER_HOSPITAL_NUMBER&quot;>[ER HOSPITAL NUMBER]</span>. </p>
+
+                            <div class=&quot;ddi_Recheck&quot; style=&quot;display:none;&quot;>
+                                <h4>Recheck</h4>
+                                <ul>
+                                    <li class=&quot;ddi_cbRCSchedule&quot; style=&quot;display: none;&quot;>Please schedule an appointment to have <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s <span class=&quot;ddi_tbRCScheduleProcedure&quot;></span> repeated in <span class=&quot;ddi_tbRCScheduleDays&quot;></span> to assess <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> response to therapy.</li>
+                                    <li class=&quot;ddi_cbRCDoctor&quot; style=&quot;display: none;&quot;>Please recheck with Dr. <span class=&quot;ddi_VETERINARIAN_NAME&quot;>[VETERINARIAN NAME]</span> in <span class=&quot;ddi_tbRCDoctorNum&quot;></span> <span class=&quot;ddi_rbRCDoctorNum&quot;>days</span>.</li>
+
+                                    <li class=&quot;ddi_RCIncision&quot; style=&quot;display:none;&quot;>
+                                        Incision Care
+                                        <ul style=&quot;padding-bottom:0px;&quot;>
+                                            <li class=&quot;ddi_cbRCICDrain&quot; style=&quot;display:none;&quot;><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s drain should be removed by our team in <span class=&quot;ddi_rbRCICDrain&quot;></span>.</li>
+
+                                            <li class=&quot;ddi_rbRCICSutureTeam ddi_rbRCICSuture&quot; style=&quot;display:none;&quot;><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s sutures should be removed by our team in <span class=&quot;ddi_rbRCICSutureTeamDays&quot;></span>.</li>
+                                            <li class=&quot;ddi_rbRCICSutureStaples ddi_rbRCICSuture&quot; style=&quot;display:none;&quot;><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s skin staples should be removed by our team in <span class=&quot;ddi_rbRCICSutureStaplesDays&quot;></span>.</li>
+                                            <li class=&quot;ddi_rbRCICSutureAbsorb ddi_rbRCICSuture&quot; style=&quot;display:none;&quot;>The sutures in <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s skin will absorb over time so they do not need to be removed.</li>
+                                            <li class=&quot;ddi_rbRCICSutureGlue ddi_rbRCICSuture&quot; style=&quot;display:none;&quot;>Skin glue was used to close <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s incision so no sutures need to be removed.</li>
+                                        </ul>
+                                    </li>
+                                    <li class=&quot;ddi_RCBandage&quot; style=&quot;display:none;&quot;>
+                                        Bandage Care
+                                        <ul style=&quot;padding-bottom:0px;&quot;>
+                                            <li class=&quot;ddi_cbRCBCChanged&quot; style=&quot;display:none;&quot;><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s bandage should be changed by our team in <span class=&quot;ddi_rbRCBCChangedDays&quot;>[number of days]</span> or sooner if it becomes soiled, wet, foul-smelling, or damaged.</li>
+                                        </ul>
+                                    </li>
+
+                                    <li class=&quot;ddi_cbRCXray&quot; style=&quot;display:none;&quot;>Please schedule an appointment to have <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span>’s radiographs (x-rays) repeated in <span class=&quot;ddi_tbRCXrayDays&quot;></span> <span class=&quot;ddi_rbRCXrayDWM&quot;>days</span> to assess <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> response to therapy.</li>
+                                    <li class=&quot;ddi_cbRCOther&quot; style=&quot;display:none;&quot;><span class=&quot;ddi_tbRCOther&quot;></span></li>
+                                </ul>
+                            </div>
+
+                            <h4>Thank you</h4>
+                            <p>We appreciate your dedication to <span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> and we’re honored to be with you on this journey.</p>
+
+                            <p><span class=&quot;ddi_GPLovely&quot;><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> is a lovely patient.</span> <span class=&quot;ddi_GPManyFans&quot;><span class=&quot;ddi_PET_NAME&quot;>[PET NAME]</span> has many fans here at the hospital!</span> <span class=&quot;ddi_GPOther&quot;></span> Thank you for trusting us with <span class=&quot;ddi_HIS_HER&quot;>[HIS/HER]</span> care.</p>
+
+                            <p>Please call our hospital at <span class=&quot;ddi_HOSPITAL_PHONE_NUMBER&quot;>[HOSPITAL PHONE NUMBER]</span> with any questions or concerns.</p>
+
+                        </div>
+                    </div>
+
+                    <br />
+                    <p class=&quot;text-center&quot;>
+                        <input type=&quot;button&quot; title=&quot;Print Discharge Instructions&quot; value=&quot;Print Discharge Instructions&quot; onclick=&quot;GetPrintableForm();&quot; class=&quot;button button--red mediaCTA__button&quot; />
+                    </p>
+                    <p class=&quot;text-center&quot;>To save these instructions as a PDF, click the button above and select either “Save as PDF” or “Print to PDF”. This option is available in certain browsers only.</p>
+                    <br />
+                </div>
+
+            </b-tab>
+
+            <b-tab title=&quot;Print the Instructions&quot;>
+                <h4>Print the instructions:</h4>
+                <p>Print the instructions and save them as PDF by clicking the button below.</p>
+                <p><a href=&quot;javascript:void(0)&quot; class=&quot;button button--red mediaCTA__button&quot; onclick=&quot;GetPrintableForm();&quot;><i class=&quot;material-icons&quot;>print</i> Print Instructions</a></p>
+            </b-tab>
+        </b-tabs>
+    </div>
+</div><script src=&quot;https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js&quot;></script><script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js&quot;></script></body></html>" width="100%" height="1000" frameborder="0" scrolling="no" style="overflow: hidden; height: 1209px;"></iframe>
